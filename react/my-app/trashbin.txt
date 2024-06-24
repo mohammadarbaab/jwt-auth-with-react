@@ -1,0 +1,81 @@
+class
+ 
+for="pwd"
+ 
+for="email"
+ 
+submit
+ 
+
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+ 
+
+      Login
+ 
+a
+ 
+import React from 'react'
+
+function About() {
+  return (
+    <div>
+      about
+    </div>
+  )
+}
+
+export default About
+
+ 
+Home
+ 
+import React, { useState } from 'react';
+
+const Login = ({ setLogin }) => {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    fetch("http://127.0.0.1:5000/api/login", {
+      headers: {
+        'Accept': 'appliation/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({ name, password })
+    })
+      .then(res => res.json())
+      .then(result => {
+        localStorage.setItem('login', JSON.stringify({ login: true, token: result.token }));
+        setLogin({ login: true, token: result.token });
+      });
+  };
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <input type="text" onChange={(e) => setName(e.target.value)} />
+      <br />
+      <input type="password" onChange={(e) => setPassword(e.target.value)} />
+      <br />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+};
+
+export default Login;
+
+ 
+React.StrictMode
+ 
+
+          <li>
+            <a href="#">Page 3</a>
+          </li>
+ 
+class
+ 
+class
+ 
